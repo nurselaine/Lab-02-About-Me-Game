@@ -82,27 +82,29 @@ function questionFive(userName){
 }
 
 function numberGame(){
-  let answerSix = +prompt("Let's play a guessing game now! Pick a number please!");
+  let answerSix = +prompt("Let's play a guessing game now! Pick a number between 1-10 please!");
+  console.log(answerSix);
+  let rightAnswer = 7;
   
   for (let i = 1; i < 4; i++) {
-    if (answerSix > 10){
+    if (answerSix > rightAnswer){
       alert("Too high. Guess again!");
       answerSix = +prompt("guess again...");
       console.log("Too high. Guess again!");
-    } else if (answerSix < 5){
+    } else if (answerSix == 0){
+      answerSix = +prompt("Not between 1-10. Guess again..");
+    } else if (answerSix < rightAnswer){
       alert("Too low. Try again!");
       answerSix = +prompt("guess again...");
-      console.log("Too low. Try again!");
-    } else if (answerSix === 7 || answerSix === 8 || answerSix === 9){
+      // console.log("Too low. Try again!");
+    } else if (answerSix == rightAnswer){
       alert("You guess correct!");
       i = 4; // corrected to leave loop once guessed correct
       correctAnswers++;
-    } else if (i == 4) {
-      alert("Too many guesses! The answers were 7, 8, or 9!");
-    };
+    }
   
   };
-  alert("Correct answers were 7, 8, and 9! Nice job!");
+  alert("Correct answers were 7! Nice job!");
 }
 
 function faveGame(){
